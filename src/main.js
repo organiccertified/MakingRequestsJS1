@@ -4,7 +4,9 @@ const BASE_URL = "http://localhost:5000";
 function index() {
     return axios
     .get(`${BASE_URL}/constellations`)
-    .then(({data}) =>  {return data})  //returning ALL data
+    .then(({data}) =>  
+      console.log(data)  //returning all data with a console.log PASSING
+    )  
     .catch(({ message }) => {
       console.error(message);
     });
