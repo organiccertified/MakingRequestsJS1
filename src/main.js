@@ -16,7 +16,8 @@ function index() {
 function create(body) {
     return axios
     .post(`${BASE_URL}/constellations`, body)
-    .then(({ data }) => data)  //THINK I MISS TO FINISH THIS?
+    .then(({ data }) => 
+      console.log(data))  //returning the just created data
     .catch(({ message }) => {
       console.error(message);
     });
@@ -25,9 +26,9 @@ function create(body) {
 function show(id) {
     return axios
     .get(`${BASE_URL}/constellations/${id}`)
-    .then(({data}) => {               //THINK I MISS TO FINISH THIS?
-      return data;
-    })
+    .then(({data}) => 
+      console.log(data)   //returning the data that matches the id only
+      )
     .catch(({ message }) => {
       console.error(message);
     });
@@ -35,8 +36,10 @@ function show(id) {
 
 function update(id, body) {
   return axios
-  .put(`${BASE_URL}/constellations/${id}`)
-  .then(({ data }) => data)                       //THINK I MISS TO FINISH THIS?
+  .put(`${BASE_URL}/constellations/${id}`, body)
+  .then(({ data }) => 
+      console.log(data)    //Returning the updated data\ 
+  )     
   .catch(({ message }) => {
     console.error(message);
   });
@@ -45,12 +48,8 @@ function update(id, body) {
 function destroy(id) {
   return axios
   .delete(`${BASE_URL}/constellations/${id}`)
-  .then(({ data }) => {                            //THINK I MISS TO FINISH THIS?
-    let result = data.find((data)=> { 
-      data.id == id
-    } )    
-  return result
-})
+  .then(({ data }) => console.log(data)    //Returning the deleted data\ 
+  )     
   .catch(({ message }) => {
     console.error(message);
   });
